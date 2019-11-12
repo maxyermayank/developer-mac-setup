@@ -3,7 +3,7 @@ Set of Scripts and Documentation to setup Mac as Development Environment
 
 
 # **Prerequisite**
-- Make sure you have admin permission to execute script to install all the development tools.
+- Make sure you have admin permission to execute the script to install all the development tools.
 - Bash
 - Git client to clone this repository. If you do not have Git then you can simply download the repository.
 - Comment/Uncomment tools in the script per your need.
@@ -94,7 +94,7 @@ brew cask install android-studio
 ```
 
 # **Install important Visual Studio Code Extensions**
-If you want to add any new extension besides all the one's listed below then update vscode-extensions.txt before executing script.
+If you want to add any new extension besides all the ones listed below then update vscode-extensions.txt before executing script.
 - [x] [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [x] [GitHub](https://marketplace.visualstudio.com/items?itemName=KnisterPeter.vscode-github)
 - [x] [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)
