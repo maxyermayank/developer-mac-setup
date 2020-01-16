@@ -17,6 +17,7 @@ chmod +x macSetup.sh
 
 # **Execute Script to begin Setup**
 ```
+xcode-select --install
 ./macSetup.sh
 ```
 

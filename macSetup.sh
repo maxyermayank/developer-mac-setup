@@ -8,10 +8,10 @@ red=`tput setaf 1`
 green=`tput setaf 2`
 reset=`tput sgr0`
 
-if test ! $(which gcc); then
-  echo "Installing command line developer tools..."
-  xcode-select --install
-fi
+# if test ! $(which gcc); then
+#   echo "Installing command line developer tools..."
+#   xcode-select --install
+# fi
 
 if test ! $(which brew); then
   echo "Installing homebrew..."
@@ -103,6 +103,7 @@ DeveloperUtilitiesList=(
     netcat
     nmap
     wget
+    go
     nvm
     bash-completion
 )
@@ -111,7 +112,6 @@ CaskDeveloperUtilitiesList=(
     spectacle
     postman
     dotnet-sdk
-    go
     wireshark
     # google-chrome-canary
     # firefox-developer-edition
@@ -183,7 +183,7 @@ CaskIDEsList=(
 )
 if [ "$IDEs" != "${IDEs#[Yy]}" ] ;then
     echo Yes
-    brew cask install --appdir="/Applications" ${CaskDatabaseToolList[@]}
+    brew cask install --appdir="/Applications" ${CaskIDEsList[@]}
     cat vscode-extensions.txt | xargs -L1 code --install-extension
 else
     echo No
@@ -216,8 +216,8 @@ CaskDevOpsToolList=(
 )
 if [ "$DevOps" != "${DevOps#[Yy]}" ] ;then
     echo Yes
-    brew install ${DatabaseToolList[@]}
-    brew cask install ${CaskDatabaseToolList[@]}
+    brew install ${DevOpsToolList[@]}
+    brew cask install ${CaskDevOpsToolList[@]}
 
     ## DOCKER APP
     wget -P ~/Downloads/ https://github.com/docker/app/releases/download/v0.6.0/docker-app-darwin.tar.gz
