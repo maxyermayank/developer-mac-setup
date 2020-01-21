@@ -17,8 +17,8 @@ if test ! $(which brew); then
   echo "Installing homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install caskroom/cask/brew-cask
-    brew tap caskroom/versions
-    brew tap caskroom/cask
+    brew tap homebrew/cask-versions
+    brew tap homebrew/cask-cask
     brew tap 'homebrew/bundle'
     brew tap 'homebrew/cask'
     brew tap 'homebrew/cask-drivers'
