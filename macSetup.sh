@@ -204,6 +204,7 @@ DevOpsToolList=(
     packer
     terragrunt
     ansible
+    awscli
     aws-sam-cli
     kompose
 )
@@ -227,12 +228,18 @@ if [ "$DevOps" != "${DevOps#[Yy]}" ] ;then
 
 
     ## Install AWS CLI
-    pip3 --version
-    curl -O https://bootstrap.pypa.io/get-pip.py
-    python3 get-pip.py --user
-    pip3 install awscli --upgrade --user
+    #pip3 --version
+    #curl -O https://bootstrap.pypa.io/get-pip.py
+    #python3 get-pip.py --user
+    #pip3 install awscli --upgrade --user
     aws --version
-    rm get-pip.py
+    #rm get-pip.py
+
+
+    curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-macos.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install
+    aws2 --version
 else
     echo No
 fi
