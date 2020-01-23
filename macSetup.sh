@@ -159,6 +159,7 @@ CaskDatabaseToolList=(
     pgadmin4
     studio-3t
     graphiql
+    azure-data-studio
 )
 if [ "$Database" != "${Database#[Yy]}" ] ;then
     echo Yes
