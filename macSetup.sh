@@ -82,7 +82,7 @@ CaskMobileDeveloperToolList=(
 )
 if [ "$MobileDeveloper" != "${MobileDeveloper#[Yy]}" ] ;then
     echo Yes
-    brew cask install ${CaskMobileDeveloperToolList[@]}
+    brew install ${CaskMobileDeveloperToolList[@]}
 else
     echo No
 fi
