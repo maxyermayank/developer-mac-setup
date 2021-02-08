@@ -51,7 +51,7 @@ CaskGeneralToolList=(
 )
 if [ "$General" != "${General#[Yy]}" ] ;then
     echo Yes
-    brew cask install --appdir="/Applications" ${CaskGeneralToolList[@]}
+    brew install --cask --appdir="/Applications" ${CaskGeneralToolList[@]}
 else
     echo No
 fi
@@ -66,7 +66,7 @@ CaskDesignerToolList=(
 )
 if [ "$Designer" != "${Designer#[Yy]}" ] ;then
     echo Yes
-    brew cask install --appdir="/Applications" ${CaskDesignerToolList[@]}
+    brew install --cask --appdir="/Applications" ${CaskDesignerToolList[@]}
 else
     echo No
 fi
@@ -82,7 +82,7 @@ CaskMobileDeveloperToolList=(
 )
 if [ "$MobileDeveloper" != "${MobileDeveloper#[Yy]}" ] ;then
     echo Yes
-    brew cask install ${CaskMobileDeveloperToolList[@]}
+    brew install --cask ${CaskMobileDeveloperToolList[@]}
 else
     echo No
 fi
@@ -120,7 +120,7 @@ if [ "$DeveloperUtilities" != "${DeveloperUtilities#[Yy]}" ] ;then
     
     echo Yes
     brew install ${DeveloperUtilitiesList[@]}
-    brew cask install ${CaskDeveloperUtilitiesList[@]}
+    brew install --cask ${CaskDeveloperUtilitiesList[@]}
 
 
     mkdir ~/.nvm
@@ -164,7 +164,7 @@ CaskDatabaseToolList=(
 if [ "$Database" != "${Database#[Yy]}" ] ;then
     echo Yes
     brew install ${DatabaseToolList[@]}
-    brew cask install ${CaskDatabaseToolList[@]}
+    brew install --cask ${CaskDatabaseToolList[@]}
 
 else
     echo No
@@ -184,7 +184,7 @@ CaskIDEsList=(
 )
 if [ "$IDEs" != "${IDEs#[Yy]}" ] ;then
     echo Yes
-    brew cask install --appdir="/Applications" ${CaskIDEsList[@]}
+    brew install --cask --appdir="/Applications" ${CaskIDEsList[@]}
     cat vscode-extensions.txt | xargs -L1 code --install-extension
 else
     echo No
@@ -219,7 +219,7 @@ CaskDevOpsToolList=(
 if [ "$DevOps" != "${DevOps#[Yy]}" ] ;then
     echo Yes
     brew install ${DevOpsToolList[@]}
-    brew cask install ${CaskDevOpsToolList[@]}
+    brew install --cask ${CaskDevOpsToolList[@]}
 
     ## DOCKER APP
     wget -P ~/Downloads/ https://github.com/docker/app/releases/download/v0.6.0/docker-app-darwin.tar.gz
@@ -263,7 +263,7 @@ CaskProductivityToolList=(
 )
 if [ "$Productivity" != "${Productivity#[Yy]}" ] ;then
     echo Yes
-    brew cask install --appdir="/Applications" ${CaskProductivityToolList[@]}
+    brew install --cask --appdir="/Applications" ${CaskProductivityToolList[@]}
 else
     echo No
 fi
