@@ -46,7 +46,7 @@ read General
 
 CaskGeneralToolList=(
     google-chrome
-    firefox
+    #firefox
     spotify
 )
 if [ "$General" != "${General#[Yy]}" ] ;then
@@ -87,6 +87,28 @@ else
     echo No
 fi
 
+############# Python Developer #############
+beginDeploy "############# Python Developer #############"
+echo -n "Do you wish to install Python Developer Tools (${bold}${green}y${reset}/${bold}${red}n${reset})? "
+read PythonDeveloper
+
+PythonDeveloperToolList=(
+    pyenv pyenv-virtualenv
+    isort
+    python-yq
+)
+
+CaskPythonDeveloperToolList=(
+    fastlane
+)
+if [ "$PythonDeveloper" != "${PythonDeveloper#[Yy]}" ] ;then
+    echo Yes
+    brew install ${PythonDeveloperToolList[@]}
+    brew install --cask ${CaskPythonDeveloperToolList[@]}
+else
+    echo No
+fi
+
 
 ############# Developer Utilities #############
 beginDeploy "############# Developer Utilities #############"
@@ -113,6 +135,7 @@ CaskDeveloperUtilitiesList=(
     postman
     dotnet-sdk
     wireshark
+    iterm2
     # google-chrome-canary
     # firefox-developer-edition
 )
@@ -157,8 +180,8 @@ DatabaseToolList=(
 )
 CaskDatabaseToolList=(
     pgadmin4
-    studio-3t
-    graphiql
+    #studio-3t
+    #graphiql
     azure-data-studio
 )
 if [ "$Database" != "${Database#[Yy]}" ] ;then
@@ -178,9 +201,9 @@ read IDEs
 
 CaskIDEsList=(
     visual-studio-code
-    intellij-idea
-    visual-studio
-    android-studio
+    #intellij-idea
+    #visual-studio
+    #android-studio
 )
 if [ "$IDEs" != "${IDEs#[Yy]}" ] ;then
     echo Yes
@@ -208,6 +231,7 @@ DevOpsToolList=(
     awscli
     aws-sam-cli
     kompose
+    kubernetes-cli
 )
 CaskDevOpsToolList=(
     vagrant
@@ -215,6 +239,7 @@ CaskDevOpsToolList=(
     virtualbox
     docker
     vagrant-manager
+    openlens
 )
 if [ "$DevOps" != "${DevOps#[Yy]}" ] ;then
     echo Yes
@@ -259,7 +284,8 @@ CaskProductivityToolList=(
     gpg-suite
     microsoft-teams
     microsoft-office
-    zoomus
+    bitwarden
+    #zoomus
 )
 if [ "$Productivity" != "${Productivity#[Yy]}" ] ;then
     echo Yes
