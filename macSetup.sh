@@ -98,13 +98,9 @@ PythonDeveloperToolList=(
     python-yq
 )
 
-CaskPythonDeveloperToolList=(
-    fastlane
-)
 if [ "$PythonDeveloper" != "${PythonDeveloper#[Yy]}" ] ;then
     echo Yes
     brew install ${PythonDeveloperToolList[@]}
-    brew install --cask ${CaskPythonDeveloperToolList[@]}
 else
     echo No
 fi
@@ -294,6 +290,25 @@ else
     echo No
 fi
 
+############# Oh my ZSH #############
+beginDeploy "############# Oh my ZSH #############"
+echo -n "Do you wish to install Oh my ZSH (${bold}${green}y${reset}/${bold}${red}n${reset})? "
+read OhMyZsh
+
+OhMyZshToolList=(
+    romkatv/powerlevel10k/powerlevel10k
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+if [ "$OhMyZsh" != "${OhMyZsh#[Yy]}" ] ;then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    brew install ${OhMyZshToolList[@]}
+    p10k configure
+else
+    echo No
+fi
+
 
 ############# Mac Application #############
 beginDeploy "############# Mac Application #############"
@@ -328,11 +343,11 @@ beginDeploy "############# CLEANING HOMEBREW #############"
 brew cleanup
 
 beginDeploy "############# GLOBAL GIT CONFIG #############"
-sh -c 'curl -s https://raw.githubusercontent.com/maxyermayank/developer-mac-setup/master/.gitignore >> ~/.gitignore'
+sh -c 'curl -s https://raw.githubusercontent.com/karolinachalupova/developer-mac-setup/master/.gitignore >> ~/.gitignore'
 git config --global push.default current
 git config --global core.excludesfile ~/.gitignore
-git config --global user.name "<username>"
-git config --global user.email <email>
+git config --global user.name Karolina Chalupova
+git config --global user.email chalupova.karolina@gmail.com
 git config --global color.branch auto
 git config --global color.diff auto
 git config --global color.interactive auto
@@ -340,19 +355,26 @@ git config --global color.status auto
 
 beginDeploy "############# ALIASES #############"
 beginDeploy "############# GIT ALIASES #############"
-sh -c 'curl -s https://raw.githubusercontent.com/maxyermayank/developer-mac-setup/master/.git_aliases >> ~/.git_aliases'
+sh -c 'curl -s https://raw.githubusercontent.com/karolinachalupova/developer-mac-setup/master/.git_aliases >> ~/.git_aliases'
 source ~/.git_aliases
 
 beginDeploy "############# DOCKER ALIASES #############"
-sh -c 'curl -s https://raw.githubusercontent.com/maxyermayank/developer-mac-setup/master/.docker_aliases >> ~/.docker_aliases'
+sh -c 'curl -s https://raw.githubusercontent.com/karolinachalupova/developer-mac-setup/master/.docker_aliases >> ~/.docker_aliases'
 source ~/.docker_aliases
 
 beginDeploy "############# K8s ALIASES #############"
-sh -c 'curl -s https://raw.githubusercontent.com/maxyermayank/developer-mac-setup/master/.kubectl_aliases >> ~/.kubectl_aliases'
+sh -c 'curl -s https://raw.githubusercontent.com/karolinachalupova/developer-mac-setup/master/.kubectl_aliases >> ~/.kubectl_aliases'
 source ~/.kubectl_aliases
 
 beginDeploy "############# SETUP BASH PROFILE #############"
 source ~/.bash_profile
+
+beginDeploy "############# SETUP OH MY ZSH #############"
+sh -c 'curl -s https://raw.githubusercontent.com/karolinachalupova/developer-mac-setup/master/.zshrc >> ~/.zshrc'
+source ~/.zshrc
+
+beginDeploy "############# SETUP POWERLEVEL10k #############"
+sh -c 'curl -s https://raw.githubusercontent.com/karolinachalupova/developer-mac-setup/master/.p10k.zsh >> ~/.p10k.zsh'
 
 runtime=$((($(date +%s)-$start)/60))
 beginDeploy "############# Total Setup Time ############# $runtime Minutes"
