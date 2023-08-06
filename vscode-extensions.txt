@@ -8,11 +8,13 @@ mauve.terraform
 ms-azuretools.vscode-docker
 ritwickdey.liveserver
 ms-python.python
+ms-python.black-formatter
 christian-kohler.path-intellisense
 ms-vscode-remote.remote-containers
 yzhang.markdown-all-in-one
 techer.open-in-browser
 streetsidesoftware.code-spell-checker
+streetsidesoftware.code-spell-checker-czech
 formulahendry.auto-rename-tag
 formulahendry.auto-close-tag
 pnp.polacod
@@ -24,3 +26,4 @@ chrmarti.regex
 donjayamanne.githistory
 amazonwebservices.aws-toolkit-vscode
 ms-vscode.csharp
+SonarSource.sonarlint-vscode
